@@ -1,0 +1,37 @@
+# Compose file format supported till version 18.06.0+ is 3.7
+version: "3.7"
+
+services:
+  redis:
+    image: redis:7-alpine  # Lightweight Redis image
+    container_name: redis_cache
+    restart: always
+    command: redis-server --save 20 1 --loglevel warning
+    networks:
+        - drf_assignment_network
+
+  django:
+    build: .
+    restart: always
+    container_name: django
+    volumes:
+      - type: bind
+        source: .
+        target: /app/src
+    depends_on:
+      - redis
+    ports:
+      - 8080:8000
+    command:
+      - sh
+      - -c
+      - |
+        python manage.py makemigrations
+        python manage.py migrate
+        python manage.py runserver 0.0.0.0:8000 
+    networks:
+      - drf_assignment_network
+
+networks:
+  drf_assignment_network:
+    driver: bridge

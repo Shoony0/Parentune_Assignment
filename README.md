@@ -10,6 +10,8 @@
 
 - **JSON/YAML Schema:** http://127.0.0.1:8080/swagger.json or http://127.0.0.1:8080/swagger.yaml
 
+- **Admin Panel:** http://127.0.0.1:8080/admin/
+
 
 ### Clone the Repo:
 ```bash
@@ -26,22 +28,10 @@ cd Parentune_Assignment
 docker compose -f docker-compose.yml up --build --force-recreate --remove-orphans
 ```
 
-### To Run Test cases and Check the Coverage Report:
-#### Login Docker bash shell:
+### Login Docker bash shell to create admin creds
 ```bash
-docker compose -f docker-compose.yml exec django /bin/bash
+docker compose --env-file .env -f docker-compose.yml exec django /bin/bash
 ```
-#### Run the tests with coverage:
 ```bash
-coverage run manage.py test
+python manage.py createsuperuser
 ```
-### Generate a coverage report:
-```bash
-coverage report
-```
- 
-### Generate an HTML report (optional):
-```bash
-coverage html
-```
- 

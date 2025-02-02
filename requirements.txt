@@ -1,0 +1,7 @@
+Django 
+djangorestframework 
+django-filter 
+drf-yasg 
+django-redis 
+djangorestframework-simplejwt
+coverage==7.6.10

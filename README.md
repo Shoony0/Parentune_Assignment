@@ -2,7 +2,7 @@
 
 ### Required Tools:
 - Docker version 27.1.1
-- 
+
 ### API Documentataion Link:
 - **Swagger UI:** http://127.0.0.1:8080/swagger/
 
@@ -23,7 +23,7 @@ git clone https://github.com/Shoony0/Parentune_Assignment.git
 cd Parentune_Assignment
 ```
 
-### Run Docker Compose command to setup django sever:
+### Run Docker Compose command to setup django severc redis server:
 ```bash
 docker compose -f docker-compose.yml up --build --force-recreate --remove-orphans
 ```

@@ -30,7 +30,7 @@ docker compose -f docker-compose.yml up --build --force-recreate --remove-orphan
 
 ### Login Docker bash shell to create admin creds
 ```bash
-docker compose --env-file .env -f docker-compose.yml exec django /bin/bash
+docker compose -f docker-compose.yml exec django /bin/bash
 ```
 ```bash
 python manage.py createsuperuser
